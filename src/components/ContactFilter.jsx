@@ -1,17 +1,13 @@
-import PropsType from 'prop-types';
-import { nanoid } from 'nanoid';
 import { Wrapper } from './ContactFilter.styles';
 import { Label, Input } from 'components/Form.style';
 
-const filterId = nanoid(5);
-
-export const Filter = ({ onChange, value }) => {
+export const FilterContact = ({onChange, value}) => {
+  
   return (
     <Wrapper>
-      <Label htmlFor={filterId}>Find contacts by name</Label>
+      <Label>Find contacts by name</Label>
       <Input
         autoComplete="off"
-        id={filterId}
         type="text"
         name="filter"
         value={value}
@@ -21,8 +17,4 @@ export const Filter = ({ onChange, value }) => {
       />
     </Wrapper>
   );
-};
-
-Filter.propTypes = {
-  onChange: PropsType.func.isRequired,
-};
+}
