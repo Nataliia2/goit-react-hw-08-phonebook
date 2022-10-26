@@ -17,15 +17,16 @@ import { filtersReducer } from "./FilterSlice";
 const persistConfig = {
   key: 'root',
   storage,
+  whitelist: ['contacts'],
 }
 
 const contactsPersistReducer = persistReducer(persistConfig, contactsReducer);
-const filtersPersistReducer = persistReducer(persistConfig, filtersReducer);
+
 
 const store = configureStore({
   reducer: {
     contacts: contactsPersistReducer,
-    filters: filtersPersistReducer,
+    filtersReducer,
   }, 
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
