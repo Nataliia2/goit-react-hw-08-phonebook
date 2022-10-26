@@ -1,7 +1,5 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getContacts, getStatusFilter } from "../redux/selector";
-import { addContact } from "../redux/ContactsSlice";
-import { setContactFilter } from "../redux/FilterSlice";
 import {ContactForm} from "./Form";
 import {ContactList} from "./ContactList";
 import { FilterContact } from './ContactFilter';
@@ -11,25 +9,8 @@ import  { Title, SubTitle } from "./App.styles";
 export const App = () => {
   const contacts = useSelector(getContacts);
   const filters = useSelector(getStatusFilter);
-  const dispatch = useDispatch();
+ 
 
-
-  const isDublicate = ({ name }) => {
-    const result = contacts.find(item => item.name === name);
-    return result;
-  };
-
-  const addContacts = data => {
-    if (isDublicate(data)) {
-      return alert(`${data.name} is already in contacts `);
-    }
-    dispatch(addContact(data));
-  };
-
-  const onChange = ev => {
-    const {value} = ev.currentTarget;
-    dispatch(setContactFilter(value));
-  };
 
   const getFilter = () => {
     if (!filters) {
@@ -48,11 +29,11 @@ export const App = () => {
   return (
     <>
       <Title>Phonebook</Title>
-      <ContactForm onAddContacs={addContacts} />
+      <ContactForm />
       {contacts.length !== 0 && (
         <>
           <SubTitle>Contacts</SubTitle>
-          <FilterContact onChange={onChange} value={filters} />
+          <FilterContact />
           <ContactList items={getFilter()} />
         </>
       )}

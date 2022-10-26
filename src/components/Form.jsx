@@ -15,13 +15,23 @@ export const ContactForm = () => {
   const nameId = nanoid();
   const numberId = nanoid();
 
+  const isDublicate = ({ name }) => {
+    const result = contacts.find(item => item.name === name);
+    return result;
+  };
+
+
   const submitContacts = evt => {
     evt.preventDefault();
     contacts.find(contact => contact.name === name)
 
-    dispatch(addContact({ name, number }));
+    const contact = {name, number};
     setName('');
     setNumber('');
+    if (isDublicate(contact)) {
+      return alert(`${contact.name} is already in contacts `);
+    }
+    dispatch(addContact(contact));
   };
 
   const inputChange = evt => {

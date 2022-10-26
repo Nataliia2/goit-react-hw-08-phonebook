@@ -20,6 +20,8 @@ const persistConfig = {
   storage,
 }
 
+
+
 const contactsPersistReducer = persistReducer(persistConfig, contactsReducer);
 const filtersPersistReducer = persistReducer(persistConfig, filtersReducer);
 
