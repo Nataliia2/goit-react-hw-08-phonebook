@@ -13,10 +13,6 @@ import {
 import { contactsReducer } from "./ContactsSlice";
 import { filtersReducer } from "./FilterSlice";
 
-//const rootReducer = combineReducers({
- // contacts: contactsReducer,
- // filters: filtersReducer,
-//})
 
 const persistConfig = {
   key: 'root',
@@ -29,7 +25,7 @@ const filtersPersistReducer = persistReducer(persistConfig, filtersReducer);
 const store = configureStore({
   reducer: {
     contacts: contactsPersistReducer,
-    filters: filtersPersistReducer
+    filters: filtersPersistReducer,
   }, 
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
