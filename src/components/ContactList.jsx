@@ -1,10 +1,12 @@
-import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { getFilter } from 'redux/selector';
 import { deleteContact } from '../redux/ContactsSlice';
 import { List, Item, Button } from './ContactList.styles';
 
-export const ContactList = ({ items }) => {
+export const ContactList = () => {
   const dispatch = useDispatch();
+  const items = useSelector(getFilter);
 
     const itemList = items.map(({ id, name, number }) => {
       return (
@@ -18,14 +20,4 @@ export const ContactList = ({ items }) => {
     });
   
     return <List>{itemList}</List>;
-  };
-
-  ContactList.propTypes = {
-    items: PropTypes.arrayOf(
-      PropTypes.exact({
-        id: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        number: PropTypes.string.isRequired,
-      })
-    ),
   };

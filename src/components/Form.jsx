@@ -25,13 +25,13 @@ export const ContactForm = () => {
     evt.preventDefault();
     contacts.find(contact => contact.name === name)
 
-    const contact = {name, number};
+    const data = {name, number};
     setName('');
     setNumber('');
-    if (isDublicate(contact)) {
-      return alert(`${contact.name} is already in contacts `);
+    if (isDublicate(data)) {
+      return alert(`${data.name} is already in contacts `);
     }
-    dispatch(addContact(contact));
+    dispatch(addContact(data));
   };
 
   const inputChange = evt => {
