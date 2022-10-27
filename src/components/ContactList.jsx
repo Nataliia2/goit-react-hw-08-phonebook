@@ -12,7 +12,7 @@ export const ContactList = () => {
       return (
         <Item key={id}>
           {name}: {number}
-          <Button type="button" onClick={() => dispatch(deleteContact({id}))}>
+          <Button type="button" onClick={() => dispatch(deleteContact(id))}>
             Delete
           </Button>
         </Item>
