@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
 import {
   persistStore,
@@ -13,23 +13,24 @@ import {
 import { contactsReducer } from "./ContactsSlice";
 import { filtersReducer } from "./FilterSlice";
 
-
+const rootReduser = combineReducers({
+  contacts: contactsReducer,
+  filter: filtersReducer,
+})
 
 const persistConfig = {
   key: 'root',
   storage,
+  whitelist: ['contacts'],
 }
 
 
 
-const contactsPersistReducer = persistReducer(persistConfig, contactsReducer);
-const filtersPersistReducer = persistReducer(persistConfig, filtersReducer);
+const contactsPersistReducer = persistReducer(persistConfig, rootReduser);
+
 
 const store = configureStore({
-  reducer: {
-    contacts: contactsPersistReducer,
-    filters: filtersPersistReducer
-  }, 
+  reducer:  contactsPersistReducer, 
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
