@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact } from '../redux/ContactsSlice';
+import { addContact } from '../redux/contacts/contactsOpetations';
 import { getContacts } from 'redux/selector';
 import { Form, Label, Input, Button } from './Form.style';
 
@@ -29,7 +29,7 @@ export const ContactForm = () => {
     if (isDublicate(data)) {
       return alert(`${data.name} is already in contacts `);
     }
-    dispatch(addContact(data));
+    dispatch(addContact({ name, phone: number }));
     setName('');
     setNumber('');
   };
