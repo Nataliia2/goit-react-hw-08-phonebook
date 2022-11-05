@@ -12,18 +12,18 @@ export const ContactList = () => {
     
   const itemList = items.map(({ id, name, number }) => {
       return (
-        <>
-        {error && <p>{error.message}</p>}
-        {loading && <Loader>Загружаем</Loader>}
         <Item key={id}>
           {name}: {number}
           <Button type="button" onClick={() => dispatch(deleteContact(id))}>
             Delete
           </Button>
         </Item>
-        </>
       );
     });
   
-    return <List>{itemList}</List>;
+    return <>
+    {error && <p>{error.message}</p>}
+    {loading && <Loader>Загружаем</Loader>}
+    <List>{itemList}</List>;
+    </>
   };

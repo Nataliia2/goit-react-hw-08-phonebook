@@ -13,7 +13,7 @@ export const App = () => {
     <>
       <Title>Phonebook</Title>
       <ContactForm />
-      {contacts !== 0 && (
+      {contacts.length !== 0 && (
         <>
           <SubTitle>Contacts</SubTitle>
           <FilterContact />

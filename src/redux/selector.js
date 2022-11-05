@@ -5,12 +5,12 @@ export const getIsLoading = state => state.contacts.isLoading;
 
 export  const getFilter = ({contacts, filter}) => {
     if (!filter) {
-      return contacts;
+      return contacts.items;
     }
 
     const normalaizedFilter = filter.toLowerCase();
 
-    return contacts.filter(({ name }) => {
+    return contacts.items.filter(({ name }) => {
       const normalaizedName = name.toLowerCase();
       const result = normalaizedName.includes(normalaizedFilter);
       return result;
