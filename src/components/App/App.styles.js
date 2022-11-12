@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+/*import styled from '@emotion/styled';
 
 export const Title = styled.h1`
   text-align: center;
@@ -9,3 +9,7 @@ export const SubTitle = styled.h2`
   text-align: center;
   margin-bottom: 10px;
 `;
+
+export const Container = styled.div`
+    padding: 20px;
+`;*/

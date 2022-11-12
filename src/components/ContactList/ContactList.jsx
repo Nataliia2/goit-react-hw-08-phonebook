@@ -1,11 +1,11 @@
-
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { getFilter, getError, getIsLoading } from 'redux/selector';
-import { deleteContact, fetchContact } from '../redux/contacts/contactsOpetations';
+import { getFilter, getError, getIsLoading } from '../../redux/selector';
+import { deleteContact, fetchContact } from '../../redux/contacts/contactsOpetations';
 import { List, Item, Button } from './ContactList.styles';
+import Loader from '../Loder';
 
-import Loader from './Loder';
 export const ContactList = () => {
   const dispatch = useDispatch();
   const items = useSelector(getFilter);

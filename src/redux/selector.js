@@ -3,7 +3,14 @@ export const getStatusFilter = state => state.filters;
 export const getError = state => state.contacts.error;
 export const getIsLoading = state => state.contacts.isLoading;
 
-export  const getFilter = ({contacts, filter}) => {
+export const getUserName = state => state.auth.user.name;
+export const getUserEmail = state => state.auth.user.email;
+export const getIsLoggedIn = state => state.auth.isLoggedIn;
+export const getUser = state => state.auth.user;
+export const getErrorAuth = state=> state.auth.error;
+
+
+export const getFilter = ({ contacts, filter }) => {
     if (!filter) {
       return contacts.items;
     }

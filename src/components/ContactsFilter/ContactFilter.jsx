@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { setContactFilter } from '../redux/FilterSlice';
-import { getStatusFilter } from 'redux/selector';
+import { setContactFilter } from '../../redux/FilterSlice';
+import { getStatusFilter } from '../../redux/selector';
 import { Wrapper } from './ContactFilter.styles';
-import { Label, Input } from 'components/Form.style';
+import { Label, Input } from 'components/Form/Form.style';
 
 export const FilterContact = () => {
   const value = useSelector(getStatusFilter);
