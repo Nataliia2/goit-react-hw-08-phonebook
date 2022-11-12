@@ -10,10 +10,10 @@ import './index.css';
 ReactDOM.createRoot(document.getElementById('root')).render(
 
     <Provider store={store}>
-    <PersistGate loding={null} persistor={persistor}>
+      <PersistGate loding={null} persistor={persistor}>
         <BrowserRouter basename='goit-react-hw-08-phonebook'>
             <App />
-      </BrowserRouter>   
+        </BrowserRouter>   
       </PersistGate>
        
     </Provider>
