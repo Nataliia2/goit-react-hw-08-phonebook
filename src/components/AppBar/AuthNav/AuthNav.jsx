@@ -2,6 +2,7 @@ import { List, ListItem, LinkStyled, DivContainer } from "./AutNav.styles";
 
     
 export default function AuthNav() {
+  
     return(
         <DivContainer>
             <List>

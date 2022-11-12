@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { nanoid } from 'nanoid';
-import { login } from '../../redux/contacts/contactsOpetations';
+import { login } from '../../redux/contacts/auth-operetion';
 import { getErrorAuth } from "../../redux/selector";
 import { Form, Input, Button, Label, Div, Title, ErrorText } from "./Login.style";
 

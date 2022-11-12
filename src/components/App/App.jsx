@@ -9,16 +9,18 @@ import PublicRoute from "../PublicRoute";
 import AppBar from "../AppBar/AppBar";
 import { refresh } from "../../redux/contacts/auth-operetion";
 
-const Home = lazy(() => import('../../pages/homePage'));
-const Register = lazy(() => import('../../pages/registerPage'));
-const Login = lazy(() => import('../../pages/loginPage'));
-const Contacts = lazy(() => import('../../pages/contactPage'));
+import Home from '../../pages/homePage';
 
+
+const Login = lazy(() => import('../../pages/loginPage'));
+const Register = lazy(() => import('../../pages/registerPage'));
+const Contacts = lazy(() => import('../../pages/contactPage'));
 
 
 export function App() {
   const dispatch = useDispatch();
   const loader = useSelector(getIsLoading);
+  
 
   useEffect(() => {
     dispatch(refresh());
@@ -27,19 +29,19 @@ export function App() {
   return (
     <div>
       <AppBar />
+      
       <Routes>
-        {loader && <Loader/>}
-        <Route path="/" element={<Home />}>
-          <Route element={<PublicRoute/>}>
+        <Route element={<PublicRoute />}>
+          <Route path="/" element={<Home />}>
               <Route path="/register" element={<Register/>} />
-              <Route path="/login" element={<Login/>} />
-            </Route>
+              <Route redirectTo="/login" element={<Login/>} />
+        </Route>
             <Route element={<PrivateRoute/>}>
               <Route path="/contacts" element={<Contacts/>} />
             </Route>           
         </Route>
       </Routes>
-      
+      {loader && <Loader/>}
     </div>
     );
 }
