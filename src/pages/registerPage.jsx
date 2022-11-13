@@ -4,6 +4,9 @@ export default function Register() {
   return (
     <div>
           <form>
+            <label>Name
+                  <input></input>
+                </label>
                 <label>E-mail
                   <input></input>
                 </label>

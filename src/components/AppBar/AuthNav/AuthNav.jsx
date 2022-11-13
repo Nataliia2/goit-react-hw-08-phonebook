@@ -1,5 +1,5 @@
-import { List, ListItem, LinkStyled, DivContainer } from "./AutNav.styles";
-
+import { List, ListItem, DivContainer } from "./AutNav.styles";
+import { NavLink } from 'react-router-dom';
     
 export default function AuthNav() {
   
@@ -7,15 +7,15 @@ export default function AuthNav() {
         <DivContainer>
             <List>
                 <ListItem>
-                    <LinkStyled to="/login">
+                    <NavLink to="/login">
                         Login
-                    </LinkStyled>
+                    </NavLink>
                 </ListItem>
           
                 <ListItem>
-                    <LinkStyled to="/register">
+                    <NavLink to="/register">
                         Register
-                    </LinkStyled> 
+                    </NavLink> 
                 </ListItem>
             </List>
         </DivContainer>

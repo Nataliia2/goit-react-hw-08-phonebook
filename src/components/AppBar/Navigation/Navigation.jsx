@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { Nav, NavList, ListItem, LinkStyled } from "./Navigation.styled";
+import { NavLink } from 'react-router-dom';
 
 export default function Navigation() {
     const location = useLocation();
@@ -10,15 +11,15 @@ export default function Navigation() {
             <NavList>
                 
                 <ListItem>
-                    <LinkStyled to={backHrefLink}>
+                    <NavLink to={backHrefLink}>
                         Home
-                    </LinkStyled>
+                    </NavLink>
                 </ListItem>
 
                 <ListItem>
-                    <LinkStyled to="/contacts">
+                    <NavLink to="/contacts">
                         Contacts
-                    </LinkStyled>
+                    </NavLink>
                 </ListItem> 
             
             </NavList>

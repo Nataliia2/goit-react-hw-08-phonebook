@@ -32,7 +32,7 @@ export default function LoginForm() {
  
 
     const handleSubmit = (e) => {
-        e.preventDefault();        
+        e.preventDefault();
         dispatch(login({email, password}));
         setEmail('');
         setPassword('');
@@ -46,7 +46,7 @@ export default function LoginForm() {
              <Title>Please log in </Title>
             {isError && <ErrorText>Oops, something went wrong, try again!</ErrorText>}
             <Form onSubmit={handleSubmit}>
-                <Label>Email
+                <Label>
                     <Input
                       type="email"
                       name="email"
@@ -55,11 +55,11 @@ export default function LoginForm() {
                       onChange={handleInputChange}
                       value={email}    
                       id={emailInputId}   
-                      placeholder="user@mail.com"        
+                      placeholder="user@mail.com"
                     /> 
                 </Label>
           
-                <Label>Password
+                <Label>
                     <Input
                       type="password"
                       name="password"

@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { lazy, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import  Loader  from '../Loder';
 import { getIsLoading } from "../../redux/selector";
@@ -10,11 +10,10 @@ import AppBar from "../AppBar/AppBar";
 import { refresh } from "../../redux/contacts/auth-operetion";
 
 import Home from '../../pages/homePage';
+import Login from '../../pages/loginPage';
+import Register from '../../pages/registerPage';
+import Contacts from '../../pages/contactPage';
 
-
-const Login = lazy(() => import('../../pages/loginPage'));
-const Register = lazy(() => import('../../pages/registerPage'));
-const Contacts = lazy(() => import('../../pages/contactPage'));
 
 
 export function App() {
@@ -31,17 +30,20 @@ export function App() {
       <AppBar />
       
       <Routes>
+        {loader && <Loader />}
+        <Route path="/" element={<Home />}/>
         <Route element={<PublicRoute />}>
-          <Route path="/" element={<Home />}>
+          
               <Route path="/register" element={<Register/>} />
-              <Route redirectTo="/login" element={<Login/>} />
+              <Route path="/login" element={<Login/>} />
         </Route>
             <Route element={<PrivateRoute/>}>
               <Route path="/contacts" element={<Contacts/>} />
-            </Route>           
-        </Route>
+            </Route>
+        
       </Routes>
-      {loader && <Loader/>}
+      
+      
     </div>
     );
 }
