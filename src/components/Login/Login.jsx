@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { nanoid } from 'nanoid';
 import { login } from '../../redux/contacts/auth-operetion';
 import { getErrorAuth } from "../../redux/selector";
 import { Form, Input, Button, Label, Div, Title, ErrorText } from "./Login.style";
@@ -11,9 +10,6 @@ export default function LoginForm() {
     const isError = useSelector(getErrorAuth)
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    const emailInputId = nanoid();
-    const passwordInputId = nanoid();
 
     
     const handleInputChange = (e) => {
@@ -54,7 +50,7 @@ export default function LoginForm() {
                       required
                       onChange={handleInputChange}
                       value={email}    
-                      id={emailInputId}   
+                      id={email}   
                       placeholder="user@mail.com"
                     /> 
                 </Label>
@@ -66,7 +62,7 @@ export default function LoginForm() {
                       required
                       onChange={handleInputChange}
                       value={password}  
-                      id={passwordInputId}  
+                      id={password}  
                             
                     />  
                 </Label>

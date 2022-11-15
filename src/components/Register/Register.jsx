@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { nanoid } from 'nanoid';
 import { register } from '../../redux/contacts/auth-operetion';
 import { getErrorAuth } from '../../redux/selectors';
 import { DivBox, TitleBox, FormBox, InputBox, Button, ErrorText } from "./Register.style";
@@ -13,13 +12,18 @@ export default function RegisterForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const nameInputId = nanoid();
-    const emailInputId = nanoid();
-    const passwordInputId = nanoid();
+  
+    const handleSubmit = e => {
+        e.preventDefault();
+        dispatch(register({name, email, password}));
+        setEmail('');
+        setName('');
+        setPassword('');
+        };
 
     
-    const handleChange = (e) => {
-        const {name, value} = e.target;   
+    const handleChange = e => {
+        const {name, value} = e.target;
         
         switch(name) {
           case "name":
@@ -32,17 +36,6 @@ export default function RegisterForm() {
           return;
         }
       };
-
-
-
-    const handleSubmit = (e) => {
-        e.preventDefault();        
-        dispatch(register({name, email, password}));
-        setEmail('');
-        setName('');
-        setPassword('');
-        };
-
     
     return(
 
@@ -59,7 +52,7 @@ export default function RegisterForm() {
                     required
                     onChange={handleChange}
                     value={name}    
-                    id={nameInputId}   
+                    id={name}   
                     placeholder="Name"         
                 /> 
                 </label>
@@ -71,7 +64,7 @@ export default function RegisterForm() {
                       required
                       onChange={handleChange}
                       value={email}    
-                      id={emailInputId}  
+                      id={email}  
                       placeholder="E-mail"        
                     /> 
                 </label>
@@ -83,7 +76,7 @@ export default function RegisterForm() {
                       required
                       onChange={handleChange}
                       value={password}  
-                      id={passwordInputId} 
+                      id={password} 
                       placeholder="Password"             
                     />  
                 </label>
