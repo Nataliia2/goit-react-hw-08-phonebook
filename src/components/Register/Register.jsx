@@ -20,7 +20,7 @@ export default function RegisterForm() {
         setName('');
         setPassword('');
         };
-
+   
     
     const handleChange = e => {
         const {name, value} = e.target;
