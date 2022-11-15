@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import { Nav, NavList, ListItem, LinkStyled } from "./Navigation.styled";
+import { Nav, NavList, ListItem } from "./Navigation.styled";
 import { NavLink } from 'react-router-dom';
 
 export default function Navigation() {
